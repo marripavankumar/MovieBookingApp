@@ -1,0 +1,49 @@
+package movie.order.pubsub;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.rabbitmq.client.Channel;
+import movie.MovieBookingService;
+import movie.booking.pubsub.events.SeatLockEvent;
+import movie.booking.service.BookingCartService;
+import org.springframework.amqp.core.Message;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.amqp.rabbit.listener.api.ChannelAwareMessageListener;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.util.Optional;
+
+@Component
+public class SeatLockEventListener implements ChannelAwareMessageListener {
+    @Autowired
+    ObjectMapper objectMapper;
+
+    @Autowired
+    BookingCartService bookingCartService;
+    @Autowired
+    MovieBookingService movieBookingService;
+
+    @RabbitListener(queues = "${order_seat_lock_queue}")
+    public void onMessage(Message message, Channel channel) throws Exception {
+        try {
+
+            String payload = new String(message.getBody(), "UTF-8");
+            Optional<SeatLockEvent> deserializedObject = convertJsonToObject(payload);
+            // Process the Seat lock event
+            //PROCESS PAYMENT --> SEAT CONFIRM EVENT
+            // If processing is successful, acknowledge the message
+            // create OderFailEvent in case of the failure
+            channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+        } catch (Exception e) {
+            // Handle errors and optionally reject the message
+            channel.basicNack(message.getMessageProperties().getDeliveryTag(), false, true);
+        }
+    }
+
+    private Optional<SeatLockEvent> convertJsonToObject(String message) throws JsonProcessingException {
+        Optional<SeatLockEvent> myObject=Optional.empty();
+            myObject =Optional.of(objectMapper.readValue(message, SeatLockEvent.class));
+        return myObject;
+    }
+}
