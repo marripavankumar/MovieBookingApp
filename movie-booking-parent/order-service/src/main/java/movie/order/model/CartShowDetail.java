@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import movie.booking.model.BookShowRequest;
 import movie.booking.model.UserDetail;
 import movie.booking.util.Common;
 

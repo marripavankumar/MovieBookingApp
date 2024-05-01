@@ -111,7 +111,7 @@ spring:
       on-profile: svt
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/mbp_order
+    url: jdbc:mysql://localhost:3306/movie_order_db
     username: root
     password: password
     initialization-mode: always
@@ -123,4 +123,6 @@ spring:
     hibernate:
       ddl-auto: update
 
-
+order.create.exchange: order_create_exchange
+order_seat_confirm_queue: order_seat_confirm_queue
+order_seat_lock_queue: order_seat_lock_queue

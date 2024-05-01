@@ -2,6 +2,7 @@ package movie.onboard.service.impl;
 
 import jakarta.persistence.EntityNotFoundException;
 
+import movie.onboard.model.TheatreMessage;
 import movie.onboard.model.TheatreOnboardRequest;
 import movie.onboard.model.TheatreResponse;
 import movie.onboard.entity.City;

@@ -25,7 +25,7 @@ insert into `movie_shows` (`id`,`movie_id`,`audi_id`,`show_time`,`show_date`,`bl
 insert into `movie_shows` (`id`,`movie_id`,`audi_id`,`show_time`,`show_date`,`blocked_seats`,`booked_seats`) values (7,'4',3,'10:30:00','2023-10-01',0,0);
 insert into `movie_shows` (`id`,`movie_id`,`audi_id`,`show_time`,`show_date`,`blocked_seats`,`booked_seats`) values (8,'4',3,'18:00:00','2023-10-01',0,0);
 
-CREATE OR REPLACE VIEW mbp_search.MovieTheaterView AS
+CREATE OR REPLACE VIEW movie_search_db.MovieTheaterView AS
 SELECT
     m.name as movie_name,
 	mv.type as movie_variant,

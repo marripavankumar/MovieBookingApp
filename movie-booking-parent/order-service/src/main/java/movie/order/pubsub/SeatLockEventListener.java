@@ -3,9 +3,7 @@ package movie.order.pubsub;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rabbitmq.client.Channel;
-import movie.MovieBookingService;
 import movie.booking.pubsub.events.SeatLockEvent;
-import movie.booking.service.BookingCartService;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.listener.api.ChannelAwareMessageListener;
@@ -19,10 +17,10 @@ public class SeatLockEventListener implements ChannelAwareMessageListener {
     @Autowired
     ObjectMapper objectMapper;
 
-    @Autowired
-    BookingCartService bookingCartService;
-    @Autowired
-    MovieBookingService movieBookingService;
+//    @Autowired
+//    BookingCartService bookingCartService;
+//    @Autowired
+//    MovieBookingService movieBookingService;
 
     @RabbitListener(queues = "${order_seat_lock_queue}")
     public void onMessage(Message message, Channel channel) throws Exception {

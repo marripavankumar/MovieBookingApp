@@ -3,6 +3,7 @@ package movie.onboard.pubsub;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import movie.onboard.pubsub.events.SeatConfirmEvent;
 import movie.onboard.service.ShowsService;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;

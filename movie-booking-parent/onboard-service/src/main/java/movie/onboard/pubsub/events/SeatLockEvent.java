@@ -2,9 +2,10 @@ package movie.onboard.pubsub.events;
 
 import lombok.Data;
 
+
 import java.util.Set;
 @Data
-public class SeatLockEvent extends OrderCreateEvent{
+public class SeatLockEvent extends OrderCreateEvent {
     private Integer showId;
     /* no. of seats locked after cart confirmation */
     private Set<Integer> seatsLocked;

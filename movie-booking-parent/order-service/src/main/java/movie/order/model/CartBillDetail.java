@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import movie.booking.model.PromoDetail;
 
+
 import java.io.Serializable;
 
 @AllArgsConstructor

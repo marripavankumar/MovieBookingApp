@@ -1,8 +1,8 @@
 package movie.onboard;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import mbp.onboard.domainObject.*;
-import mbp.onboard.entity.*;
+import movie.onboard.model.*;
+import movie.onboard.entity.*;
 import movie.onboard.model.ShowResponse;
 import movie.onboard.model.ShowUpsertRequest;
 import movie.onboard.entity.Movie;

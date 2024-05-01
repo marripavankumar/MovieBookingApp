@@ -15,11 +15,11 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableAutoConfiguration
 @ComponentScan(basePackages = {"movie.order.*"})
 @EnableFeignClients
-public class OrderServiceMain implements CommandLineRunner {
+public class OrderService implements CommandLineRunner {
 
     public static void main(String[] args) {
 
-        SpringApplication.run(OrderServiceMain.class, args);
+        SpringApplication.run(OrderService.class, args);
         System.out.println("Hello world!");
     }
 

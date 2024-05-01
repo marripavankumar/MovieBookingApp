@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.Set;
 
 @Data
-public class SeatConfirmEvent extends OrderCreateEvent{
+public class SeatConfirmEvent extends OrderCreateEvent {
     private Integer showId;
     /* no. of seats locked after cart confirmation */
     private Set<Integer> seatsLocked;
