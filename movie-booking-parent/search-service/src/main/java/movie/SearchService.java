@@ -3,7 +3,6 @@ package movie;
 import lombok.extern.slf4j.Slf4j;
 import movie.Entity.MovieTheaterViewEntity;
 import movie.model.SearchFilterRequest;
-import movie.search.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -19,13 +18,13 @@ import java.util.List;
 @Slf4j
 @EnableAutoConfiguration
 @ComponentScan(basePackages = {"movie.*"})
-public class SearchReplica implements CommandLineRunner {
+public class SearchService implements CommandLineRunner {
     public static void main(String[] args) {
-        SpringApplication.run(SearchReplica.class, args);
+        SpringApplication.run(SearchService.class, args);
     }
 
     @Autowired
-    SearchService searchService;
+    movie.search.SearchService searchService;
     @Override
     public void run(String... args) throws Exception {
         SearchFilterRequest request=new SearchFilterRequest();

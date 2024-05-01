@@ -76,7 +76,7 @@ spring:
       on-profile: svt
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/mbp_search
+    url: jdbc:mysql://localhost:3306/movie_search_db
     username: root
     password: password
 
